@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Allow app to work with money
+gem 'money'
 # Geocoding
 gem 'geocoder'
 # Country codes gem

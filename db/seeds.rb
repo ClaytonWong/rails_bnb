@@ -11,7 +11,7 @@ listing_sydney1 = Listing.create!( title: 'Sydney CBD Apartment', street_address
 
 listing_sydney2 = Listing.create!( title: 'Sydney CBD Apartment', street_address: '343 Pitt Street', city: 'Sydney', country_code: 'AU', bed_count: 2, bedroom_count: 2, bathroom_count: 1, description: 'Apartment', night_fee_cents: '12000', cleaning_fee_cents: '1000')
 
-listing_melbourne_au_1 = Listing.create!( title: 'Melbourne Apartment', street_address: '35 Albert Road', city: 'Melbourne', country_code: 'Au', bed_count: 1, bedroom_count: 1, bathroom_count: 1, description: 'Small apartment', night_fee_cents: '9000', cleaning_fee_cents: '500')
+listing_melbourne_au_1 = Listing.create!( title: 'Melbourne Apartment', street_address: '35 Albert Road', city: 'Melbourne', country_code: 'AU', bed_count: 1, bedroom_count: 1, bathroom_count: 1, description: 'Small apartment', night_fee_cents: '9000', cleaning_fee_cents: '500')
 
 listing_melbourne_au_2 = Listing.create!( title: 'Melbourne Apartment', street_address: '318 Lonsdale Street', city: 'Melbourne', country_code: 'AU', bed_count: 1, bedroom_count: 1, bathroom_count: 1, description: 'Small apartment', night_fee_cents: '9500', cleaning_fee_cents: '500')
 

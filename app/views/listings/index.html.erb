@@ -37,9 +37,9 @@
         <!-- show cleaning fee as dollars %>-->
         <td><%= Money.new(listing.cleaning_fee_cents.to_s, :aud).format(:with_currency => true) %></td>
         
-        <td><%= link_to 'Show', listing %></td>
-        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', listing, class: 'btn btn-success btn-sm' %></td>
+        <td><%= link_to 'Edit', edit_listing_path(listing), class: 'btn btn-primary btn-sm' %></td>
+        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -47,4 +47,4 @@
 
 <br>
 
-<%= link_to 'New Listing', new_listing_path %>
+<%= link_to 'New Listing', new_listing_path, class: 'btn btn-success btn-sm' %>

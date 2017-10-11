@@ -5,6 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Use bootstrap to improve presentation
+gem 'bootstrap'
+# We need j.query for some stuff
+gem 'jquery-rails'
 # Allow app to work with money
 gem 'money'
 # Geocoding

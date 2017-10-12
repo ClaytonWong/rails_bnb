@@ -48,11 +48,13 @@
 <p>
   <strong>Night fee:</strong>
   <%= Money.new(@listing.night_fee_cents.to_s, :aud).format(:with_currency => true) %>
+  <%#= format_cents_for_country @listing.night_fee_cents, @listing.country %>
 </p>
 
 <p>
   <strong>Cleaning fee:</strong>
   <%= Money.new(@listing.cleaning_fee_cents.to_s, :aud).format(:with_currency => true) %>
+  <%#= format_cents_for_country @listing.cleaning_fee_cents, @listing.country %>
 </p>
 
 <%= link_to 'Edit', edit_listing_path(@listing) %> |

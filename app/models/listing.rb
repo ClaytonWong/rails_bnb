@@ -11,6 +11,8 @@ class Listing < ApplicationRecord
   geocoded_by :full_address
   after_validation :geocode
 
+  belongs_to :user
+
   def country
     ISO3166::Country.new(country_code.upcase)
   end

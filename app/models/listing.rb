@@ -12,6 +12,7 @@ class Listing < ApplicationRecord
   after_validation :geocode
 
   belongs_to :user
+  has_many :conversations
 
   def country
     ISO3166::Country.new(country_code.upcase)

@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :listings
   has_many :conversations, through: :listings
   has_many :conversations
+  has_many :messages
 end

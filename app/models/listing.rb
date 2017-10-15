@@ -11,7 +11,7 @@ class Listing < ApplicationRecord
   geocoded_by :full_address
   after_validation :geocode
 
-  belongs_to :user
+  belongs_to :host, class_name: 'User'
   has_many :conversations
 
   def country

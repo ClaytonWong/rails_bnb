@@ -7,10 +7,12 @@ class ConversationsController < ApplicationController
     end
     
     def create
+        # Use scope method between to see if a conversation exists between guest and host
+        # If conversation does not exist ,create one
         if Conversation.between(params[:guest_id],params[:host_id]).present?
-        @conversation = Conversation.between(params[:guest_id], params[:host_id]).first
+          @conversation = Conversation.between(params[:guest_id], params[:host_id]).first
         else
-        @conversation = Conversation.create!(conversation_params)
+          @conversation = Conversation.create!(conversation_params)
         end
         redirect_to conversation_messages_path(@conversation)
     end

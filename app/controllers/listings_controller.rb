@@ -8,9 +8,13 @@ class ListingsController < ApplicationController
     @listings = Listing.all
   end
 
+  def show
+  end
+
   # GET /listings/1
   # GET /listings/1.json
   def show
+    @new_booking = Booking.new(check_in_at: Date.today, listing_id: @listing.id)
   end
 
   # GET /listings/new

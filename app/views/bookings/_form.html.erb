@@ -1,0 +1,19 @@
+<%= form_with(model: @booking, local: true) do |f| %>
+  <%= f.text_field :listing_id %>
+  <div>
+    <%= f.label :check_in_at, 'Check in' %>
+    <%= f.date_field :check_in_at %>
+  </div>
+
+  <div>
+    <%= f.label :check_out_at, 'Check out' %>
+    <%= f.date_field :check_out_at %>
+  </div>
+
+  <div>
+    <%= f.label :guest_count %>
+    <%= f.number_field :guest_count %>
+  </div>
+
+  <%= f.button 'Book' %>
+<% end %>

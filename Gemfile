@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'dotenv-rails', groups: [:development, :test]
+# Use mailgun dealing with emails
+gem 'mailgun-ruby', '~>1.1.6'
 # Use bootstrap to improve presentation
 gem 'bootstrap'
 # We need j.query for some stuff

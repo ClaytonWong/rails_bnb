@@ -4,21 +4,15 @@ class MessagesController < ApplicationController
     before_action :set_message, only: [:show, :edit, :update, :destroy] 
 
     def index
-        #@message = @conversation.messages.new
-        @messages = Message.all
-        @message = Message.new
+        @messages = @conversation.messages # Retrive all messages belonging to current conversation
+        @message = Message.new # Bring up form for new message
     end
 
     def new
-        #@message = @conversation.messages.new
         @message = Message.new
     end
 
     def create
-        #@message = @conversation.messages.new(message_params)
-        #if @message.save
-        #    redirect_to conversation_messages_path(@conversation)
-        #end
         @message = Message.new(message_params)
         @message.conversation = @conversation
         @message.user = current_user

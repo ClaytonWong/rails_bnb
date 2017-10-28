@@ -15,6 +15,7 @@ class ConversationsController < ApplicationController
     end
     
     def show
+        redirect_to conversation_messages_path(@conversation)
     end
 
     def new
@@ -23,36 +24,21 @@ class ConversationsController < ApplicationController
     end
 
     def create
-        #byebug
+        
         # Find existing conversations involving current user and current listing
-        currrent_user_cons = Conversation.where(guest_id: current_user) 
-        current_listing_cons = Conversation.where(listing_id: @listing)
-        @con_inter = currrent_user_cons & current_listing_cons
+        cg = Conversation.where(guest_id: current_user) 
+        cl = Conversation.where(listing_id: params[:conversation][:listing_id])
+        @con_inter = cg & cl
         
-        if (@con_inter.empty? == false) 
-            set_conversation
+        if (@con_inter.empty? == false)
+            # If conversations involving current user & current listing exists,
+            # then go to the first one
+            @conversation = @con_inter.first
         else
-            #@conversation = Conversation.create!(guest_id: current_user, listing_id: listing)
+            # Create a new conversation
             @conversation = Conversation.create!(conversation_params)
-            #@conversation = Conversation.new(conversation_params)
-            #@conversation.guest = current_user
-            #@listing = Listing.find(params[:conversation][:listing_id])
-            #@conversation.listing = Listing.find(params[:listing_id])
-            #@conversation = Conversation.new(guest_id: guest, listing_id: @listing)
-            #respond_to do |format|
-            #    if @conversation.save
-            #        format.html { redirect_to @conversation, notice: 'Conversation was successfully created.' }
-            #       format.json { render :show, status: :created, location: @conversation }
-            #    else
-            #        format.html { render :new }
-            #        format.json { render json: @conversation.errors, status: :unprocessable_entity }
-            #    end
-            #end
         end
-        redirect_to conversation_messages_path(@conversation)        
-        #listing = Listing.where(host_id: host)
-        
-        #@message = Message.create!(guest_id: current_user.id, conversation_id: @conversation.id)
+        redirect_to conversation_messages_path(@conversation)
     end
     
     private

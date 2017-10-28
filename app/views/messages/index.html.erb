@@ -1,8 +1,6 @@
 <h1>messages index page</h1>
-<% if @over_ten %>
-   <%= link_to 'Show Previous', '?m=all' %>
-<% end %>
 
+<p>For listing at <%= @conversation.listing.full_address %></p>
 
 <% @messages.each do |message| %>
   <% if message.content %>

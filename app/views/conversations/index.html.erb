@@ -11,8 +11,6 @@ messages index for that conversation.
   <% @conversations.each do |conversation| %>
     <% if (conversation.guest == current_user) || (conversation.listing.host_id == current_user.id) %>
       <div><%= link_to "Go to conversation for listing at #{conversation.listing.full_address}", conversation_messages_path(conversation) %></div>
-    <% else %>
-      
     <% end %>
   <% end %>
 <% end %>

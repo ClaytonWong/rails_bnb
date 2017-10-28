@@ -24,7 +24,6 @@ class ConversationsController < ApplicationController
     end
 
     def create
-        
         # Find existing conversations involving current user and current listing
         cg = Conversation.where(guest_id: current_user) 
         cl = Conversation.where(listing_id: params[:conversation][:listing_id])

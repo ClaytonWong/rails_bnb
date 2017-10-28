@@ -8,9 +8,6 @@ class ListingsController < ApplicationController
     @listings = Listing.all
   end
 
-  def show
-  end
-
   # GET /listings/1
   # GET /listings/1.json
   def show
@@ -21,11 +18,7 @@ class ListingsController < ApplicationController
   def new
     @listing = Listing.new
   end
-
-  # GET /listings/1/edit
-  def edit
-  end
-
+  
   # POST /listings
   # POST /listings.json
   def create
@@ -40,6 +33,10 @@ class ListingsController < ApplicationController
         format.json { render json: @listing.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # GET /listings/1/edit
+  def edit
   end
 
   # PATCH/PUT /listings/1

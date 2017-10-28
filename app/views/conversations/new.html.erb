@@ -1,5 +1,3 @@
-
-
 <%= link_to 'Back to listing', listings_url(@listing) %>
 
 <%= form_with(model: @conversation, local: true) do |form| %>
@@ -15,6 +13,7 @@
     </div>
   <% end %>
   <%= form.hidden_field :listing_id, value: params[:listing_id] %>
+  <%= form.hidden_field :guest_id, value: params[:guest_id] %>
   <div class="actions">
     <%= form.submit %>
   </div>

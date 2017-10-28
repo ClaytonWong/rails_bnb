@@ -1,4 +1,4 @@
-<h2>Hello World</h2>
+<h2>Hello World. Welcome to Rails BnB</h2>
 <p>
   The time is now: <%= Time.now %>
 </p>
@@ -11,5 +11,7 @@
     <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary' %>
   <% end %>
 
-  <%= link_to 'Listings', listings_path %>
+  <%= link_to 'Listings', listings_path, class: 'btn btn-success' %>
+  <%= link_to 'Existing Conversations', conversations_path, class: 'btn btn-success' %>
+  
 </nav>

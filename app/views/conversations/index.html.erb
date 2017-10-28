@@ -1,35 +1,18 @@
 <h1>conversations index page</h1>
-<div class="ui segment">
-  <h3>Mailbox</h3>
-  <!-- Display messages that user is part of, as well as a list of users to message
-   Also display the conversation link as the other person's name. The link sends them to the
-   messages index for that conversation.-->
-  <div class="ui list">
-    <div class="item">
-      <% @conversations.each do |conversation| %>
-    <!--if conversation.guest_id == current_user.id || conversation.listing_id == current_user.id-->
-          <% if conversation.guest_id == current_user.id %>
-            <% recipient = User.find(conversation.listing_id) %>
-          <% else %>
-            <% recipient = User.find(conversation.guest_id) %>
-          <% end %>
-          <%= link_to recipient.email, conversation_messages_path(conversation)%>
-        <!-- end -->
-      <% end %>
-    </div>
-  </div>
-</div>
 
-
-<div class="ui segment">
-  <h3>All Users</h3>
-  <div class="ui list">
-    <% @users.each do |user| %>
-      <% if user.id != current_user.id %>
-      <div class="item">
-        <%= user.email %> <%= link_to 'Message me!', conversations_path(guest_id: current_user.id, host_id: user.id), method: 'post'%>
-      </div>
-      <% end %>
+<!-- 
+Display messages that user is part of, as well as a list of users to message
+Also display the conversation link as the other person's name. The link sends them to the
+messages index for that conversation.
+-->
+<% if @conversations.empty? %>
+  <div>"No conversations"</div>
+<% else %>  
+  <% @conversations.each do |conversation| %>
+    <% if (conversation.guest == current_user) || (conversation.listing.host_id == current_user.id) %>
+      <div><%= link_to 'Go to conversation', conversation_messages_path(conversation) %></div>
+    <% else %>
+      
     <% end %>
-  </div>
-</div>
+  <% end %>
+<% end %>

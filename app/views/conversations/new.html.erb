@@ -1,4 +1,4 @@
-<%= link_to 'Back to listing', listings_url(@listing) %>
+<%= link_to 'Back to listing', listing_path(params[:listing_id]) %>
 
 <%= form_with(model: @conversation, local: true) do |form| %>
   <% if @conversation.errors.any? %>
